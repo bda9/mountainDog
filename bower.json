@@ -1,0 +1,19 @@
+{
+  "name": "mountaindog",
+  "description": "Extreme Dog Training and Boarding",
+  "main": "index.js",
+  "authors": [
+    "David Andelin"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bda9/mountainDog",
+  "moduleType": [],
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "toastr": "^2.1.2",
+    "angular": "^1.5.2",
+    "angular-resource": "^1.5.2",
+    "angular-route": "^1.5.2"
+  }
+}

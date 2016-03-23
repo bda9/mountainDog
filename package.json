@@ -1,0 +1,27 @@
+{
+  "name": "mountaindog",
+  "version": "1.0.0",
+  "description": "Extreme Dog Training and Boarding",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bda9/mountainDog"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "engines": {
+    "node": "^5.5.0",
+    "npm": "^3.3.12"
+  },
+  "author": "David Andelin",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "mongoose": "^4.4.8",
+    "morgan": "^1.7.0",
+    "stylus": "^0.54.2"
+  }
+}
