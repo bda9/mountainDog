@@ -3,6 +3,7 @@ var passport = require('passport');
 // TODO: Stop sending the entire user object (esp. salt & hashed_pwd) back to client on login
 
 exports.authenticate = function(req, res, next) {
+  req.body.username = req.body.username.toLowerCase();
   var auth = passport.authenticate('local', function(err, user) {
     if (err) {
       return next(err);

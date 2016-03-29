@@ -1,0 +1,90 @@
+.container
+  .well
+    form.form-horizontal(name="signupForm")
+      fieldset
+        h1 New User Information
+          h5 *required fields
+        legend New User Information
+        .form-group
+          label.col-md-2.control-label(for="email") *Email
+          .col-md-7
+            input.form-control(name="email", type="email", placeholder="Email", ng-model="email", required)
+        .form-group
+          label.col-md-2.control-label(for="password") *Password
+          .col-md-7
+            input.form-control(name="password", type="password", placeholder="Password", ng-model="password", required)
+        .form-group
+          label.col-md-2.control-label(for="fname") *First Name
+          .col-md-7
+            input.form-control(name="fname", type="text", placeholder="First Name", ng-model="fname", required)
+        .form-group
+          label.col-md-2.control-label(for="lname") *Last Name
+          .col-md-7
+            input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="lname", required)
+        .form-group
+          label.col-md-2.control-label(for="phone") *Phone Number
+          .col-md-7
+            input.form-control(name="phone", type="tel", placeholder="Phone Number", ng-model="phone", required)
+        .form-group
+        //- Dog Info
+          label.col-md-2.control-label(for="dName") Dog's Name
+          .col-md-7
+            input.form-control(name="dName", type="text", placeholder="Dog's Name", ng-model="dName")
+        .form-group
+          label.col-md-2.control-label(for="dAge") Age of your dog
+          .col-md-2
+            select.form-control(name="dAge", data-placeholder="Years", ng-model="dAge")
+              option(value="" disabled selected class="hide") Age
+              option(value='0.083') 1 Month
+              option(value='0.166') 2 Months
+              option(value='025.') 3 Months
+              option(value='0.333') 4 Months
+              option(value='0.416') 5 Months
+              option(value='0.5') 6 Months
+              option(value='0.583') 7 Months
+              option(value='0.666') 8 Months
+              option(value='0.75') 9 Months
+              option(value='0.833') 10 Months
+              option(value='0.916') 11 Months
+              option(value='1') 1 Year
+              option(value='1.5') 1 Year 6 Months
+              option(value='2') 2 Years
+              option(value='3') 3 Years
+              option(value='4') 4 Years
+              option(value='5') 5 Years
+              option(value='6') 6 Years
+              option(value='7') 7 Years
+              option(value='8') 8 Years
+              option(value='9') 9 Years
+              option(value='10') 10 Years
+              option(value='11') 11 Years
+              option(value='12') 12 Years
+              option(value='13') 13 Years
+              option(value='14') 14 Years
+              option(value='15') 15 Years or older
+        .form-group
+          label.col-md-2.control-label(for="dSex") Gender
+          .col-md-2
+            select.form-control(name="dSex", data-placeholder="Gender" ng-model="dSex")
+              option(value='male') Male
+              option(value='female') Female
+        .form-group
+          label.col-md-2.control-label(for="breed") Breed
+          .col-md-7
+            input.form-control(name="breed", type="text", placeholder="Breed", ng-model="breed")
+        .form-group
+          label.col-md-2.control-label(for="size") Size
+          .col-md-3
+            select.form-control(name="size", data-placeholder="Size", ng-model="size")
+              option(value="" disabled selected class="hide") Size
+              option(value='toy') Toy (less than 10 pounds)
+              option(value='small') Small (10-20 pounds)
+              option(value='medium') Medium (20-40 pounds)
+              option(value='large') Large (40-80 pounds)
+              option(value='x-large') Extra Large (80+ pounds)
+        .form-group
+          .col-md-10.col-md-offset-2
+            .pull-right
+              button.btn.btn-primary(ng-click="signup()", ng-disabled="signupForm.$invalid") Submit
+              | &nbsp;
+              a.btn.btn-default(href="/") Cancel

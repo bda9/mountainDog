@@ -1,6 +1,6 @@
 .panel.panel-primary
   .panel-heading Training And Course Dates
   .panel-body
-    .row(ng-repeat="course in courses | filter:{featured:true}")
+    .row(ng-repeat="course in courses")
       .col-md-8 {{course.name}} 
       .col-md-4 Starts - {{course.startDate | date: 'EEEE, d MMM y'}}
