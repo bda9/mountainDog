@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
     userModel = require('../models/User'),
     courseModel = require('../models/Course');
+    serviceModel = require('../models/Service');
 
 module.exports = function(config) {
   mongoose.connect(config.db);
@@ -13,5 +14,6 @@ module.exports = function(config) {
 
   userModel.createDefaultUsers();
   courseModel.createDefaultCourses();
+  serviceModel.createDefaultServices();
 
 };

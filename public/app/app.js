@@ -25,9 +25,11 @@ angular.module('app').config(function($routeProvider, $locationProvider){
   })
     .when('/courses', {templateUrl: '/partials/courses/course-list',
     controller: 'mvCourseListCtrl'
+  })
+    .when('/services', {templateUrl: '/partials/services/service-list',
+    controller: 'mvServiceListCtrl'
   });
 });
-
 
 angular.module('app').run(function($rootScope, $location) {
   $rootScope.$on('$routeChangeError', function(evt, current, previous, rejection) {

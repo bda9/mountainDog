@@ -1,6 +1,6 @@
 .panel.panel-primary
   .panel-heading Dog Services
   .panel-body
-    .row(ng-repeat="service in services | filter:{featured:true} | limitTo:5")
+    .row(ng-repeat="service in services")
       .col-md-9 {{service.name}}
       .col-md-2 {{service.cost |  currency}}
