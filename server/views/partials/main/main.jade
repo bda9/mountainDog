@@ -1,8 +1,10 @@
 .container
   .jumbotron
-    h1 Happy Mountain Dog
+    h1 Pleasant Dog Training
     p Tailor-Made Dog Services and Training
-    
+    video#bgvid(autoplay='', loop='', poster='./images/t1.jpg')
+      source(src='./images/waterdogvid.mp4', type='video/mp4')
+      source(src='./images/waterdogvid.ogv', type='video/ogv')
   .row
     .col-md-4
       div(ng-include="'/partials/main/dog-services'")
