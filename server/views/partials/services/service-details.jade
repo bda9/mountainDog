@@ -1,0 +1,24 @@
+.container
+  h1 ""
+  h1 {{service.name}}
+  .row
+    .col-md-4
+      h3(ng-show="service.featured") Featured!
+      h4 Cost {{service.cost | currency}}
+      p {{service.description}}
+      
+    .col-md-8
+      .panel.panel-primary
+        .panel-heading Reviews
+        .panel-body
+        table.table.table-hover.table-striped.table-condensed
+          thead
+            tr
+              th Reviewer
+              th Stars
+              th Review
+          tbody
+            tr(ng-repeat="review in service.reviews")
+              td {{review._id}}
+              td {{review}}
+              td {{review}}

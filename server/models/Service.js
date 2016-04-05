@@ -4,7 +4,8 @@ var serviceSchema = mongoose.Schema({
   name: {type:String, required:'{PATH} is required!'},
   featured: {type:Boolean, required:'{PATH} is required!'},
   cost: {type:Number, required:'{PATH} is required!'},
-  description: {type:String, required:'{PATH} is required!'}
+  description: {type:String, required:'{PATH} is required!'},
+  reviews : [{ type: mongoose.Schema.ObjectId, ref: 'Review' }]
 });
 var Service = mongoose.model('Service', serviceSchema);
 

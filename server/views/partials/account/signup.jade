@@ -26,14 +26,13 @@
           .col-md-7
             input.form-control(name="phone", type="tel", placeholder="Phone Number", ng-model="phone", required)
         .form-group
-        //- Dog Info
-          label.col-md-2.control-label(for="dName") Dog's Name
+          label.col-md-2.control-label(for="dogName") Dog's Name
           .col-md-7
-            input.form-control(name="dName", type="text", placeholder="Dog's Name", ng-model="dName")
+            input.form-control(name="dogName", type="text", placeholder="Dog's Name", ng-model="dogName")
         .form-group
-          label.col-md-2.control-label(for="dAge") Age of your dog
+          label.col-md-2.control-label(for="dogAge") Age of your dog
           .col-md-2
-            select.form-control(name="dAge", data-placeholder="Years", ng-model="dAge")
+            select.form-control(name="dogAge", data-placeholder="Years", ng-model="dogAge")
               option(value="" disabled selected class="hide") Age
               option(value='0.083') 1 Month
               option(value='0.166') 2 Months
@@ -63,9 +62,9 @@
               option(value='14') 14 Years
               option(value='15') 15 Years or older
         .form-group
-          label.col-md-2.control-label(for="dSex") Gender
+          label.col-md-2.control-label(for="dogSex") Gender
           .col-md-2
-            select.form-control(name="dSex", data-placeholder="Gender" ng-model="dSex")
+            select.form-control(name="dogSex", data-placeholder="Gender" ng-model="dogSex")
               option(value='male') Male
               option(value='female') Female
         .form-group

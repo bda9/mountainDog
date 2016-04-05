@@ -16,7 +16,8 @@
         th Course Description
       tbody
         tr(ng-repeat="course in courses | filter:searchText | orderBy:sortOrder")
-          td {{course.name}}
+          td 
+            a(href="/courses/{{course._id}}") {{course.name}}
           td {{course.startDate | date: 'EEEE, d MMM y'}}
           td {{course.cost |  currency}}
           td {{course.description}}

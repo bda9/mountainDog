@@ -1,4 +1,4 @@
-angular.module('app').factory('mvAuth', function($http, mvIdentity, $q, mvUser){
+angular.module('app').factory('mvAuth', function($http, mvIdentity, $q, mvUser, mvCourse){
   return {
     authenticateUser: function(username, password) {
       var dfd = $q.defer();
@@ -33,9 +33,33 @@ angular.module('app').factory('mvAuth', function($http, mvIdentity, $q, mvUser){
       var dfd = $q.defer();
 
       var clone = angular.copy(mvIdentity.currentUser);
-      angular.extend(clone, newUserData);
+      angular.merge(clone, newUserData);
       clone.$update().then(function() {
         mvIdentity.currentUser = clone;
+        dfd.resolve();
+      }, function(response) {
+        dfd.reject(response.data.reason);
+      });
+      return dfd.promise;
+    },
+
+    createCourse: function(newCourseData) {
+      var newCourse = new mvCourse(newCourseData);
+      var dfd = $q.defer();
+
+      newCourse.$save().then(function() {
+          dfd.resolve();
+      }, function(response) {
+        dfd.reject(response.data.reason);
+      });
+      return dfd.promise;
+    },
+
+    deleteCourse: function(idToDel) {
+      var dfd = $q.defer();
+      var newCourse = new mvCourse();
+
+      newCourse.$delete({id: idToDel},function() {
         dfd.resolve();
       }, function(response) {
         dfd.reject(response.data.reason);

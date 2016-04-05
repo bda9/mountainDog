@@ -6,13 +6,12 @@ angular.module('app').controller('mvSignupCtrl', function($scope, mvUser, mvNoti
       firstName: $scope.fname,
       lastName: $scope.lname,
       phone: $scope.phone,
-      dogs: [{
-        dogName: $scope.dName,
-        dogAge: $scope.dAge,
-        dogSex: $scope.dSex,
-        breed: $scope.breed,
-        size: $scope.size
-      }]
+      dogName: $scope.dogName,
+      dogAge: $scope.dogAge,
+      dogSex: $scope.dogSex,
+      breed: $scope.breed,
+      size: $scope.size
+
     };
 
     mvAuth.createUser(newUserData).then(function() {

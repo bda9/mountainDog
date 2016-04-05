@@ -4,7 +4,8 @@ var courseSchema = mongoose.Schema({
   name: {type:String, required:'{PATH} is required!'},
   startDate: {type:Date, required:'{PATH} is required!'},
   cost: {type:Number, required:'{PATH} is required!'},
-  description: {type:String, required:'{PATH} is required!'}
+  description: {type:String, required:'{PATH} is required!'},
+  reviews : [{ type: mongoose.Schema.ObjectId, ref: 'Review' }]
 });
 var Course = mongoose.model('Course', courseSchema);
 

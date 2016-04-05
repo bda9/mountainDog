@@ -2,5 +2,6 @@
   .panel-heading Dog Services
   .panel-body
     .row(ng-repeat="service in services")
-      .col-md-9 {{service.name}}
+      .col-md-9 
+        a(href="/services/{{service._id}}") {{service.name}}
       .col-md-2 {{service.cost |  currency}}

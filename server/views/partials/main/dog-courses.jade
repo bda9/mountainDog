@@ -2,5 +2,6 @@
   .panel-heading Training And Course Dates
   .panel-body
     .row(ng-repeat="course in courses")
-      .col-md-8 {{course.name}} 
+      .col-md-8
+        a(href="/courses/{{course._id}}") {{course.name}}
       .col-md-4 Starts - {{course.startDate | date: 'EEEE, d MMM y'}}

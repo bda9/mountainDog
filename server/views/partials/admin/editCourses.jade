@@ -1,0 +1,35 @@
+h1 ""
+.container
+  table.table.table-hover.table-striped.table-condensed
+    thead
+      tr 
+        th Course Name
+        th Start Date
+        th Cost
+        th Description
+        th Edit
+    tbody
+      tr
+        btn.btn.btn-primary(ng-click="showEdit = !showEdit") Add New Course
+      tr(ng-show="showEdit")
+        form(name="createCourse")
+          td 
+            input.form-control(name="courseName", type="text", placeholder="Course Name", ng-model="courseName")
+          td 
+            input.form-control(name="startDate", type="date", placeholder="Course Start Date", ng-model="startDate")
+          td 
+            input.form-control(name="cost", type="text", placeholder="Course Cost", ng-model="cost")
+          td 
+            input.form-control(name="description", type="text", placeholder="Course Description", ng-model="description")
+          td 
+            btn.btn.btn-primary(ng-click="create()", ng-disabled="createCourse.$invalid") Create
+            | &nbsp;
+            a.btn.btn-default(ng-click="showEdit = !showEdit") Cancel
+      tr(ng-repeat="course in courses track by $index")
+        div
+          td {{course.name}}
+          td {{course.startDate | date}}
+          td {{course.cost | currency}}
+          td {{course.description}}
+          td 
+            btn.btn.btn-primary(ng-click="delete($index)") Delete

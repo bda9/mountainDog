@@ -1,0 +1,36 @@
+var mongoose = require('mongoose');
+
+var reviewSchema = mongoose.Schema({
+  author: {type:String, required:'{PATH} is required'},
+  title: {type:String, required:'{PATH} is required'},
+  stars: {type:Number, required:'{PATH} is required'},
+  reviewDate: {type:Date},
+  body: {type: String, required:'{PATH} is required'}
+});
+var Review = mongoose.model('Review', reviewSchema);
+
+function createDefaultReviews() {
+  Review.find({}).exec(function(err, collection){
+    if(collection.length === 0) {
+      Review.create({author: "Misty S", title: "Peace of Mind!", stars: 5, reviewDate: new Date('4/4/2015'), body: "I don't think my dog misses me at all when I take him to Katya's! He loves going there. She takes special care with him every time and she was very accommodating when I needed a last minute booking. I'm very appreciative of her services!"});
+      Review.create({author: "Betsy D", title: "my dogs love Katya", stars: 5, reviewDate: new Date('4/14/2015'), body: "Beau had a wonderful experience while vacationing with Katya! And more importantly, I was able to relax knowing that he was receiving such great care. He can't wait for his next visit."});
+      Review.create({author: "Mike C", title: "Highly recommend", stars: 5, reviewDate: new Date('5/22/2015'), body: "My dog had such a good time while he was being boarded with Katya. He was well taken care of and she sent me pictures throughout his stay. I would Highly recommend this sitter."});
+      Review.create({author: "Mindy G", title: "true dog lover", stars: 5, reviewDate: new Date('5/8/2015'), body: "Katya is a true dog lover who put me at ease when leaving my dog-ter. The reviews sold me on calling Katya, and when I met her, I knew she was the one. Her love for furry things and her comfort with my 150 pound baby was evident. I knew she would enjoy her trip as much as I did, and I'm sure she did! Thanks Katya!"});
+      Review.create({author: "Bailey K", title: "love the picture update", stars: 5, reviewDate: new Date('6/15/2015'), body: "We love Katya! She is great with Rella every time she is there, and Rella always comes back home tired! You can tell she was playing all day and having fun.we especially love the picture update. We would recommend Katya 100%."});
+      Review.create({author: "Randy L", title: "A W E S O M E ! ! !", stars: 5, reviewDate: new Date('6/24/2015'), body: "This is the place to bring your poochie for good times and lots of loving care. Thanks again Katya!"});
+      Review.create({author: "Mary Claire", title: "Great Experience", stars: 5, reviewDate: new Date('7/4/2015'), body: "Katya was AMAZING! Baron was very happy and looked like he had a great time with her and her pack. We are looking forward to having her as a host for future plans!!!"});
+      Review.create({author: "Carolyn T", title: "excellent job", stars: 5, reviewDate: new Date('7/24/2015'), body: "Katya was very responsive during our search for someone to care for our pack. She made us and our Aussies feel comfortable and they were well cared for during their stay. She did an excellent job with our three young Ausstrailian Shepards. They were immediately comfortable with her. Everyone was happy. We are glad we found Katya and will definitely use her again."});
+      Review.create({author: "Greg H", title: "kept us updated with photos", stars: 5, reviewDate: new Date('8/19/2015'), body: "It was the next best thing to taking him with us! Katya loves dogs and kept us updated with photos. She took great care of our little guy and I wouldn't hesitate to have him stay with her again next time. Thanks!"});
+      Review.create({author: "Joseph S", title: "found someone we can trust", stars: 5, reviewDate: new Date('10/2/2015'), body: "Our boy Jasper had a great time when we left him over a long weekend! He's not quite a year yet, so we are very cautious when we have to leave him. The first time we arranged a meet and greet, we knew our pup was in great hands! Katya kept us frequently updated, and provided supervision all day. I'm so happy we found someone we can trust with our special boy!"});
+      Review.create({author: "Marjorie R", title: "Katya was great with our dog!", stars: 5, reviewDate: new Date('11/30/2015'), body: "We loved Katya! She gives you complete piece of mind. Ozzy was in no hurry to leave:). we will never board with a commercial company again, Katya provided a cage free environment, with complete cleanliness and love. Even sent us a video of our boy playing with his team mates!"});
+      Review.create({author: "Michael S", title: "Definitely be booking more in the future!", stars: 5, reviewDate: new Date('12/2/2015'), body: "My senior fur baby requires extra TLC which Katya absolutely accommodates our requests for his comfort. We are very appreciative of the care she provides to him and it gives us peace of mind to go away and enjoy our vacation when we know he is with her."});
+      Review.create({author: "Jane E", title: "Very clear step by step method", stars: 5, reviewDate: new Date('12/28/2015'), body: "I would, and often do, highly recommend her classes. She gets you by making the class energetic and fun to watch. My favorite thing about the class is its all meat and no filler. I don't have a lot of time and she gets right to the skills in a very clear step by step method that makes both the handler and the dog feel successful."});
+      Review.create({author: "Catherine M", title: "Inspired by the class!", stars: 5, reviewDate: new Date('1/4/2016'), body: "You have me excited to train again! After doing this for 30+ years! I was bored and boring! You break things down into small components and then when you put them together, voila! Love it! Stitch hated the break, although I did need it! Thanks Katya and we are really looking forward to the next steps! If you were in front of me I would hug you and Stitch would jump all over you!"});
+      Review.create({author: "Shantelle S", title: "This course was excellent", stars: 5, reviewDate: new Date('1/20/2016'), body: "Thank you again I Loved the course and am hoping for more. Thank you very much for the opportunity to take this and to learn from your knowledge."});
+      Review.create({author: "Ruth A", title: "Thank you for this opportunity!", stars: 5, reviewDate: new Date('2/22/2016'), body: "For me the most important aspect of balanced dog training was the necessity to control and manage all the different environments and distractions that can happen to a dog and handler. As a new trainer for my dogs it puts stress on me to go into new areas with them, now I am more secure and aware of what to look for and how to handle situations that might come up."});
+      Review.create({author: "Norman V", title: "This is an awesome class", stars: 5, reviewDate: new Date('3/31/2016'), body: "There were so many things that I could not possibly name just one. I am getting a service dog in May and you have brought together so many of the questions that I had in one course. Pointing out the commands and why they are used the way they are was eye opening. I will continue to use all that you have made available to us. I will be taking another course with you very soon."});
+    }
+  });
+}
+
+exports.createDefaultReviews = createDefaultReviews;

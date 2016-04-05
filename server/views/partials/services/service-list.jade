@@ -9,6 +9,7 @@
         th Description
       tbody
         tr(ng-repeat="service in services")
-          td {{service.name}}
+          td 
+            a(href="/services/{{service._id}}") {{service.name}}
           td {{service.cost |  currency}}
           td {{service.description}}

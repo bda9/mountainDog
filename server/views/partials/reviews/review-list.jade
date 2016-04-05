@@ -1,0 +1,18 @@
+.container
+  h1 ""
+  h1 Reviews
+  table.table.table-hover.table-striped.table-condensed
+    thead
+      tr
+        th Reviewer
+        th Title
+        th Stars
+        th Review
+        th Date
+    tbody
+      tr(ng-repeat="review in reviews")
+        td {{review.author}}
+        td {{review.title}}
+        td {{review.stars}}
+        td {{review.body}}
+        td {{review.reviewDate | date: 'EEEE, d MMM y'}}

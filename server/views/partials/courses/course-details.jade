@@ -1,0 +1,25 @@
+.container
+  h1 ""
+  h1 {{course.name}}
+  .row
+    .col-md-4
+      h3(ng-show="course.startDate") Starts soon, inquire for details!
+      h3(ng-show="!course.startDate") Starts on {{course.startDate | date}}
+      h4 Cost {{course.cost | currency}}
+      p {{course.description}}
+      
+    .col-md-8
+      .panel.panel-primary
+        .panel-heading Reviews
+        .panel-body
+        table.table.table-hover.table-striped.table-condensed
+          thead
+            tr
+              th Reviewer
+              th Stars
+              th Review
+          tbody
+            tr(ng-repeat="review in course.reviews")
+              td {{review._id}}
+              td {{review}}
+              td {{review}}

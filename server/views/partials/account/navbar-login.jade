@@ -1,9 +1,8 @@
 .navbar-right(ng-controller="mvNavBarLoginCtrl")
   form.navbar-form(ng-hide="identity.isAuthenticated()")
     ul.nav.navbar-nav
-    .form-group
-        a(href="/signup")  
-          button.btn.btn-link Register
+     .form-group
+        a.btn.btn-link(href="/signup") Register
     .form-group
       input.form-control(placeholder="Email", ng-model="username")
     .form-group
@@ -17,6 +16,10 @@
       ul.dropdown-menu
         li(ng-show="identity.currentUser.isAdmin()")
           a(href="/admin/users") User Admin
+        li(ng-show="identity.currentUser.isAdmin()")
+          a(href="/admin/editCourses") Edit Course
+        li(ng-show="identity.currentUser.isAdmin()")
+          a(href="/admin/editServices") Edit Service
         li
           a(href="/profile") Profile
         li

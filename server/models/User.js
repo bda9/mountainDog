@@ -10,13 +10,11 @@ var userSchema = mongoose.Schema({
     unique: true
   },
   phone: Number,
-  dogs: [{
-    dogName: String,
-    dogAge: Number,
-    dogSex: String,
-    breed: String,
-    size: String
-  }],
+  dogName: String,
+  dogAge: Number,
+  dogSex: String,
+  breed: String,
+  size: String,
   salt: {type: String, required: '{PATH} is required!'},
   hashed_pwd: {type: String, required: '{PATH} is required!'},
   roles: [String]
