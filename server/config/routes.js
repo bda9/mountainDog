@@ -18,7 +18,10 @@ module.exports = function(app) {
   app.get('/api/courses/:id', courses.getCourseById);
 
   app.get('/api/services', services.getServices);
+  app.post('/api/services', auth.requiresRole('admin'), services.createService);
+  app.delete('/api/services/:id', auth.requiresRole('admin'), services.deleteService);
   app.get('/api/services/:id', services.getServiceById);
+
   app.get('/api/reviews', reviews.getReviews);
   app.get('/partials/*', function(req, res, next) {
     res.render('partials/' + req.params[0]);

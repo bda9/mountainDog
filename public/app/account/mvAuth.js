@@ -1,4 +1,4 @@
-angular.module('app').factory('mvAuth', function($http, mvIdentity, $q, mvUser, mvCourse){
+angular.module('app').factory('mvAuth', function($http, mvIdentity, $q, mvUser, mvCourse, mvService){
   return {
     authenticateUser: function(username, password) {
       var dfd = $q.defer();
@@ -59,8 +59,32 @@ angular.module('app').factory('mvAuth', function($http, mvIdentity, $q, mvUser, 
       var dfd = $q.defer();
       var newCourse = new mvCourse();
 
-      newCourse.$delete({id: idToDel},function() {
-        dfd.resolve();
+      newCourse.$delete({id: idToDel}).$promise.then(function() {
+        dfd.resolve('OK!');
+      }, function(response) {
+        dfd.reject(response.data.reason);
+      });
+      return dfd.promise;
+    },
+
+    createService: function(newServiceData) {
+      var newService = new mvService(newServiceData);
+      var dfd = $q.defer();
+
+      newService.$save().then(function() {
+          dfd.resolve();
+      }, function(response) {
+        dfd.reject(response.data.reason);
+      });
+      return dfd.promise;
+    },
+
+    deleteService: function(idToDel) {
+      var dfd = $q.defer();
+      var newService = new mvService();
+
+      newService.$delete({id: idToDel}).$promise.then(function() {
+        dfd.resolve('OK!');
       }, function(response) {
         dfd.reject(response.data.reason);
       });

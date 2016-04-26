@@ -7,11 +7,29 @@ h1 ""
         th Featured
         th Cost
         th Description
-        th Reviews
+        th Edit
     tbody
-      tr(ng-repeat="service in services")
-        td {{service.name}}
-        td {{service.featured}}
-        td {{service.cost}}
-        td {{service.description}}
-        td {{service.reviews}}
+      tr
+        btn.btn.btn-primary(ng-click="showEdit = !showEdit") Add New Service
+      tr(ng-show="showEdit")
+        form(name="createService")
+          td 
+            input.form-control(name="serviceName", type="text", placeholder="Service Name", ng-model="serviceName")
+          td 
+            input.form-control(name="serviceFeatured", type="text", placeholder="Featured", ng-model="serviceFeatured")
+          td 
+            input.form-control(name="cost", type="text", placeholder="Service Cost", ng-model="cost")
+          td 
+            input.form-control(name="description", type="text", placeholder="Service Description", ng-model="description")
+          td 
+            btn.btn.btn-primary(ng-click="create()", ng-disabled="createService.$invalid") Create
+            | &nbsp;
+            a.btn.btn-default(ng-click="showEdit = !showEdit") Cancel
+      tr(ng-repeat="service in services track by $index")
+        div
+          td {{service.name}}
+          td {{service.featured}}
+          td {{service.cost | currency}}
+          td {{service.description}}
+          td 
+            btn.btn.btn-primary(ng-click="delete($index)") Delete
